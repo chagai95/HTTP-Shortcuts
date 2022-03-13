@@ -502,7 +502,7 @@ class ExecuteActivity : BaseActivity(), Entrypoint {
             if (!Validation.isValidUrl(uri)) {
                 throw InvalidUrlException(url)
             }
-            Intent(Intent.ACTION_VIEW, uri)
+            Intent(Intent.ACTION_VIEW, uri).setClassName("org.mozilla.firefox","BrowserActivity")
                 .startActivity(this)
         } catch (e: ActivityNotFoundException) {
             throw UnsupportedFeatureException()
